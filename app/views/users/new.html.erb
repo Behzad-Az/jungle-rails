@@ -20,9 +20,10 @@
         <% end %>
 
           <div class="form-group">
-            <%= form.label :register %>
-            <%= form.text_field :email, placeholder: "enter valid email here", class: 'form-control' %>
-            <%= form.text_field :password, placeholder: "enter password here", class: 'form-control' %>
+<!--             <%= form.label :register %> -->
+            Email: <%= form.text_field :email, placeholder: "enter valid email here", class: 'form-control' %>
+            Password: <%= form.password_field :password, placeholder: "enter password here", class: 'form-control' %>
+            Password Confirmation: <%= form.password_field :password_confirmation, placeholder: "re-enter password", class: 'form-control' %>
           </div>
 
         <%= form.submit 'Create user', class: 'btn btn-primary' %>
