@@ -14,6 +14,25 @@
 
       <div class="col-sm-8">
         <dl class="dl-horizontal">
+
+          <% if @product.reviews.first.present? %>
+            <table>
+              <tr>
+                <th>Rating</th>
+                <th>Review</th>
+              </tr>
+              <% @product.reviews.each do |review| %>
+                <tr>
+                  <td><%= review.rating %></td>
+                  <td><%= review.description %></td>
+                </tr>
+              <% end %>
+            </table>
+          <% else %>
+            <dt>Rating</dt>
+            <dd>No rating yet - be the first to review!</dd>
+          <% end %>
+
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
           <dt>Description</dt>
