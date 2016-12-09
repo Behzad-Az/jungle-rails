@@ -146,6 +146,12 @@ product1.reviews.create!({
   rating: 5
 })
 
+product1.reviews.create!({
+  user_id: 1,
+  description: "meh.. not cool",
+  rating: 3
+})
+
 product2 = Product.find_by! name: "Hotdog Slicer"
 product2.reviews.create!({
   user_id: 1,
