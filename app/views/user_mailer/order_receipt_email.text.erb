@@ -1,0 +1,22 @@
+
+
+
+Welcome to the jungle we got fun and games
+We got everything you want honey, we know the names ....
+
+------------------------------------------------------------------------
+
+This is your receipt for order #<%= @order.id %>
+
+------------------------------------------------------------------------
+
+Items on this order were:
+
+<% @order.line_items.each do |line_item| %>
+Name: <%= line_item.product.name %> | qnty: <%= line_item.quantity %> | Unit Price: <%= humanized_money_with_symbol line_item.item_price %> | Subtotal: <%= humanized_money_with_symbol line_item.total_price %>
+
+<% end %>
+
+------------------------------------------------------------------------
+
+TOTAL: <%= humanized_money_with_symbol @order.total %>
