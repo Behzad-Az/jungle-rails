@@ -43,18 +43,6 @@ ActiveRecord::Schema.define(version: 20161209191541) do
     t.string   "email"
   end
 
-  create_table "product_ratings", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "product_id"
-    t.text     "description"
-    t.integer  "rating"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "product_ratings", ["product_id"], name: "index_product_ratings_on_product_id", using: :btree
-  add_index "product_ratings", ["user_id"], name: "index_product_ratings_on_user_id", using: :btree
-
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -67,6 +55,18 @@ ActiveRecord::Schema.define(version: 20161209191541) do
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.text     "description"
+    t.integer  "rating"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "reviews", ["product_id"], name: "index_reviews_on_product_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.integer  "user_id"
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 20161209191541) do
 
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
-  add_foreign_key "product_ratings", "products"
-  add_foreign_key "product_ratings", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "users"
   add_foreign_key "sessions", "users"
 end

@@ -132,5 +132,28 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+user1 = User.create!({
+  email: 'b@a.com',
+  password: 'a',
+  password_digest: 'a'
+
+})
+
+product1 = Product.find_by! name: "Red Bookshelf"
+product1.reviews.create!({
+  user_id: 1,
+  description: "good stuff",
+  rating: 5
+})
+
+product2 = Product.find_by! name: "Hotdog Slicer"
+product2.reviews.create!({
+  user_id: 1,
+  description: "this sucks",
+  rating: 0
+})
+
+
+
 
 puts "DONE!"
