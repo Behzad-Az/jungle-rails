@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
-  resources :products, only: [:index, :show]
+  resources :products, except: [:new, :edit] do
+    resources :reviews
+  end
+
   resources :categories, only: [:index, :show]
 
 
@@ -21,6 +24,10 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:create, :show]
+
+  # namespace :review do
+  #   resources :products, only: [:create]
+  # end
 
   namespace :admin do
     root to: 'dashboard#show'
