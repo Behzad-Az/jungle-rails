@@ -15,4 +15,8 @@ class Product < ActiveRecord::Base
     return self.quantity < 1
   end
 
+  def get_avg_rating
+    return '%.1f' % self.reviews.average(:rating)
+  end
+
 end

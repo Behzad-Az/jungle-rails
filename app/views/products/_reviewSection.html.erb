@@ -18,19 +18,22 @@
   <dd>
 
     <% if @product.reviews.length > 1 %>
+    <p> Average Rating: <%= @product.get_avg_rating %> </p>
       <div class="panel panel-default reviews">
         <table class="table table-bordered">
 
           <thead>
             <tr>
+              <th>Review Date</th>
               <th>Rating</th>
               <th>Comments</th>
             </tr>
           </thead>
 
           <tbody>
-            <% @product.reviews.each do |review| %>
+            <% @product.reviews.order(:created_at).reverse_order.each do |review| %>
               <tr>
+                <td><%= review.created_at.to_date %></td>
                 <td><%= review.rating %></td>
                 <td><%= review.description %></td>
               </tr>
