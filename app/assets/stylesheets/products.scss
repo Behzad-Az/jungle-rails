@@ -76,11 +76,12 @@ main section.categories-show {
   }
 }
 
-main section.products-show {
+main section.product-show {
 
   .product-detail {
     img.main-img {
       max-width: 100%;
+      display: inline-block;
     }
   }
 }

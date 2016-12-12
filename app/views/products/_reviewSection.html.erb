@@ -1,0 +1,51 @@
+<section class="reviews-index">
+
+  <dt>New Review</dt>
+  <% if current_user %>
+    <dd>
+      <%= form_for [@product, @review] do |form| %>
+        <div><%= form.select :rating, [1,2,3,4,5] %></div>
+        <div><%= form.text_area :description %></div>
+        <div><%= form.submit %></div>
+      <% end %>
+    </dd>
+  <% else %>
+    <dd>You must be logged in to review.</dd>
+  <% end %>
+
+  <dt>Reviews</dt>
+
+  <dd>
+
+    <% if @product.reviews.length > 1 %>
+      <div class="panel panel-default reviews">
+        <table class="table table-bordered">
+
+          <thead>
+            <tr>
+              <th>Rating</th>
+              <th>Comments</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @product.reviews.each do |review| %>
+              <tr>
+                <td><%= review.rating %></td>
+                <td><%= review.description %></td>
+              </tr>
+            <% end %>
+          </tbody>
+
+        </table>
+
+
+      <% else %>
+        No rating yet - be the first to review!
+      <% end %>
+    </div>
+  </dd>
+
+
+
+</section>

@@ -1,4 +1,4 @@
-<section class="products-show">
+<section class="product-show">
 
   <header class="page-header">
     <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
@@ -23,40 +23,7 @@
           <dt>Price</dt>
           <dd><%= humanized_money_with_symbol @product.price %></dd>
 
-
-          <dt>New Review<dt>
-          <dd>
-            <%= form_for [@product, @review] do |form| %>
-              <div><%= form.select :rating, [1,2,3,4,5] %></div>
-              <div><%= form.text_area :description %></div>
-              <div><%= form.submit %></div>
-            <% end %>
-          </dd>
-
-
-
-
-
-          <dt>Reviews</dt>
-          <dd>
-            <% if @product.reviews.length > 1 %>
-              <table>
-                <tr>
-                  <th>Rating</th>
-                  <th>Comments</th>
-                </tr>
-                <% @product.reviews.each do |review| %>
-                  <tr>
-                    <td><%= review.rating %></td>
-                    <td><%= review.description %></td>
-                  </tr>
-                <% end %>
-              </table>
-            <% else %>
-              No rating yet - be the first to review!
-            <% end %>
-          </dd>
-
+          <%= render "products/reviewSection" %>
 
         </dl>
       </div>
