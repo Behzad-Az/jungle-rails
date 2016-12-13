@@ -88,6 +88,10 @@ main section.product-show {
   }
 }
 
+#review-list tr td {
+  overflow-wrap: break-word;
+}
+
 #review-list tr td:nth-child(1){
   width: 20%;
   min-width: 100px;
@@ -105,5 +109,10 @@ main section.product-show {
 
 .product-info dt {
   padding-top: 10px;
+}
+
+.remove-review-btn {
+  float: right;
+  display: inline-block;
 }
 

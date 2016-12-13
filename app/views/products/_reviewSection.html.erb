@@ -44,7 +44,7 @@
             <tr>
               <th>Review Date</th>
               <th>Rating</th>
-              <th>Comments</th>
+              <th colspan="2">Comments</th>
             </tr>
           </thead>
 
@@ -53,7 +53,11 @@
               <tr>
                 <td><%= review.created_at.to_date %></td>
                 <td><%= review.rating %></td>
-                <td><%= review.description %></td>
+                <td><%= review.description %>
+                  <% if current_user && review.user.id == current_user.id %>
+                    <span class="remove-review-btn"><%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete %><span>
+                   <% end %>
+                </td>
               </tr>
             <% end %>
           </tbody>
