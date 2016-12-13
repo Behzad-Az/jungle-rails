@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    # add user here
     @user = User.new
   end
 
@@ -31,6 +30,5 @@ class UsersController < ApplicationController
       :password
     )
   end
-
 
 end

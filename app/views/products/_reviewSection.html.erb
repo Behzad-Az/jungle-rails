@@ -1,8 +1,9 @@
 <section class="reviews-index">
   <hr>
   <dt>New Review:</dt>
-  <dd>
+
     <% if current_user %>
+      <dd>
       <div class="row">
         <div class="col-sm-12">
           <%= form_for [@product, @review] do |form| %>
@@ -22,13 +23,12 @@
           <% end %>
         </div>
       </div>
-
+      </dd>
     <% else %>
 
-      <dd>You must be logged in to review.</dd>
+      <dd> <%= link_to 'Please login to review', [:login], class: 'btn btn-info' %> </dd>
 
     <% end %>
-  </dd>
 
   <hr>
 
