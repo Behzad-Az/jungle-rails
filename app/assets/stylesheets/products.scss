@@ -71,7 +71,6 @@ main section.categories-show {
           opacity: 1.0;
         }
       }
-
     }
   }
 }
@@ -80,10 +79,31 @@ main section.product-show {
 
   .product-detail {
     img.main-img {
-      max-width: 100%;
-      display: inline-block;
+      width: 50%;
+      max-width: 300px;
+      display: block;
+      margin: 0 auto;
+      border: 5px #ccc solid;
     }
   }
 }
 
+#review-list tr td:nth-child(1){
+  width: 20%;
+  min-width: 100px;
+}
+
+#review-list tr td:nth-child(2){
+  min-width: 30px;
+  width: 10%
+}
+
+
+.product-info dd {
+  padding-top: 10px;
+}
+
+.product-info dt {
+  padding-top: 10px;
+}
 
